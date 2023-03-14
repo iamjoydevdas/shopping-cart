@@ -23,7 +23,8 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path: 'products', component: ProductComponent}
+      {path: 'products', component: ProductComponent},
+      {path:"", component: LoginComponent}
     ])
   ],
   providers: [ProductService],

@@ -7,8 +7,13 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  form = new FormGroup({
-    'username': new FormControl(),
-    'password': new FormControl()
-  })
+  login={
+    'userId':'',
+    'password':''
+  }
+
+  doSubmit():void{
+      console.log(this.login)
+  }
+
 }

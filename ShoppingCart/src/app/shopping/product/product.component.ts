@@ -14,7 +14,6 @@ export class ProductComponent implements OnInit {
   products!: Product[]
   constructor(private productService: ProductService) {
 
-
   }
 
   ngOnInit(): void {
@@ -23,11 +22,6 @@ export class ProductComponent implements OnInit {
       this.products = this.responseProduct.products
       console.log(this.products)
     })
-  }
-
-  rateProduct(rating:number) {
-    console.log(rating * 75 / 5)
-    return rating * 75 / 5;
   }
 
 }
