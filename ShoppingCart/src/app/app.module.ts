@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductComponent } from './shopping/product/product.component'
 import { HttpClientModule  } from "@angular/common/http";
 import { ProductService } from './shared/service/product.service';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -20,9 +21,13 @@ import { ProductService } from './shared/service/product.service';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule 
+    HttpClientModule,
+    RouterModule.forRoot([
+      {path: 'products', component: ProductComponent}
+    ])
   ],
   providers: [ProductService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[RouterModule]
 })
 export class AppModule { }
