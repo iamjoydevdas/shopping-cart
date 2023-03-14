@@ -2,8 +2,14 @@
     <form>
         <div class="form-group">
             <label for="user-id">User Id</label>
-            <input [(ngModel)] = "login.userId" [ngModelOptions]="{standalone: true}" id="user-id" type="text" class="form-control">
+            <input required 
+                #userId="ngModel" 
+                name="userId" 
+                [(ngModel)] = "login.userId" 
+                [ngModelOptions]="{standalone: true}" 
+                id="user-id" type="text" class="form-control">
         </div>
+        <div *ngIf="userId.touched && !userId.valid" class="alert alert-danger">User Id required.</div>
         <div class="form-group">
             <label for="password">Password</label>
             <input [(ngModel)] = "login.password" [ngModelOptions]="{standalone: true}" id="password" type="password" class="form-control">
