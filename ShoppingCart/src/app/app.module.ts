@@ -11,12 +11,15 @@ import { ProductService } from './shared/service/product.service';
 import { LoginService } from './shared/service/login.service';
 import { RouterModule } from '@angular/router';
 import { SharedService } from './shared/service/shared.service'
+import { AuthService } from './shared/guard/auth.service';
+import { ProductDetailComponent } from './shopping/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ProductComponent
+    ProductComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -25,11 +28,12 @@ import { SharedService } from './shared/service/shared.service'
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path: 'products', component: ProductComponent},
-      {path:"", component: LoginComponent}
+      {path: 'products', component: ProductComponent, canActivate: [AuthService]},
+      {path:"", component: LoginComponent},
+      {path: 'products/:id', component: ProductDetailComponent }
     ])
   ],
-  providers: [ProductService, LoginService, SharedService],
+  providers: [ProductService, LoginService, SharedService, AuthService],
   bootstrap: [AppComponent],
   exports:[RouterModule]
 })

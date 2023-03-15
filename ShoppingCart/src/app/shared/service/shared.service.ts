@@ -6,11 +6,18 @@ import { User } from "../models/core.models";
 export class SharedService {
     @Output() loggedInUser: EventEmitter<User> = new EventEmitter();
 
+
+    currentUser!:User
     constructor(private http: HttpClient) {
 
     }
 
     set User(user: User) {
+        this.currentUser = user
         this.loggedInUser.emit(user)
+    }
+
+    get User() {
+        return this.currentUser
     }
 }
