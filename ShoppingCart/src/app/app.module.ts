@@ -8,7 +8,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductComponent } from './shopping/product/product.component'
 import { HttpClientModule  } from "@angular/common/http";
 import { ProductService } from './shared/service/product.service';
+import { LoginService } from './shared/service/login.service';
 import { RouterModule } from '@angular/router';
+import { SharedService } from './shared/service/shared.service'
 
 @NgModule({
   declarations: [
@@ -27,7 +29,7 @@ import { RouterModule } from '@angular/router';
       {path:"", component: LoginComponent}
     ])
   ],
-  providers: [ProductService],
+  providers: [ProductService, LoginService, SharedService],
   bootstrap: [AppComponent],
   exports:[RouterModule]
 })
