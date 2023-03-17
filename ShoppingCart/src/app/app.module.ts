@@ -13,13 +13,15 @@ import { RouterModule } from '@angular/router';
 import { SharedService } from './shared/service/shared.service'
 import { AuthService } from './shared/guard/auth.service';
 import { ProductDetailComponent } from './shopping/product-detail/product-detail.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ProductComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
